@@ -4,20 +4,14 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        self.keys = []
-        self.sentences = []
-        for word in s.split():
-            self.keys.append(word[-1])
-            self.sentences.append(word[:-1])
-        for i in range(1,len(self.keys)):
-            key = self.keys[i]
-            sentence = self.sentences[i]
+        self.words = s.split()
+        for i in range(1,len(self.words)):
+            key = int(self.words[i][-1])
+            word = self.words[i]
             j = i - 1
-            while j >= 0 and key < self.keys[j]:
-                self.keys[j+1]= self.keys[j]
-                self.sentences[j+1] = self.sentences[j]
+            while j >= 0 and key < int(self.words[j][-1]):
+                self.words[j+1]= self.words[j]
                 j -= 1
-            self.keys[j+1] = key    
-            self.sentences[j+1] = sentence 
-        return ' '.join(self.sentences) 
+            self.words[j+1] = word
+        return ' '.join([word[:-1] for word in self.words])
                 
