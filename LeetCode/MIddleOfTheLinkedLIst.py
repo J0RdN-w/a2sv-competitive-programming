@@ -7,12 +7,14 @@ class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head.next is None:
             return head
-        start, sindx, end, eindx, curr = head, 1, head, 1, head.next
+        slow, start, fast, end, curr = head, 1, head, 1, head.next
         while curr:
-            end = curr 
-            eindx += 1
+            fast = curr 
+            end += 1
             curr = curr.next 
-            while sindx <= (eindx//2):
-                start = start.next
-                sindx += 1
-        return start
+            while start <= (end//2):
+                slow = slow.next
+                start += 1
+        return slow
+            
+        
