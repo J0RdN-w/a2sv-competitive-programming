@@ -16,5 +16,10 @@ class Solution:
                 slow = slow.next
                 start += 1
         return slow
+    
+#         slow, fast = head, head
+#         while fast and fast.next:
+#             slow,fast = slow.next,fast.next.next
+#         return slow
             
         
